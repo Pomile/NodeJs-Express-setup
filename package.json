@@ -19,6 +19,7 @@
     "build": "rimraf dist && mkdir dist && npm run build-with-babel",
     "build-with-babel": "babel ./server -d dist",
     "start": "node ./dist/bin/www",
+    "start:dev": "nodemon --watch ./server --exec babel-node ./server/bin/www",
     "mocha:test": "mocha --require @babel/register ./server/spec/tester.js --exit",
     "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text npm run mocha:test",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "babel-plugin-istanbul": "^5.2.0",
@@ -53,6 +55,7 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.18.2",
     "mocha": "^6.2.0",
+    "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
     "rimraf": "^2.6.3",
     "supertest": "^4.0.2"
